@@ -1,0 +1,7 @@
+services:
+  nginx:
+    build:
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8081:80
