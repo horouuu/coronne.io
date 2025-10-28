@@ -1,5 +1,6 @@
 services:
   nginx:
+    container_name: coronneio
     build:
       dockerfile: ./Dockerfile
     restart: unless-stopped
