@@ -1,4 +1,4 @@
 FROM nginx:mainline-alpine-slim
 
 COPY . /usr/share/nginx/html
-COPY special.conf /etc/nginx/conf.d/special.conf
+COPY nginx.conf /etc/nginx/conf.d/nginx.conf
