@@ -1,6 +1,56 @@
 @font-face {
   font-family: "inconsolata";
-  src: url(./fonts/Inconsolata/Inconsolata.ttf);
+  src: url(./fonts/Inconsolata.ttf);
+}
+
+@font-face {
+  font-family: "runescape";
+  src: url(./fonts/runescape.ttf);
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  font: 100% / 1.5 "Raleway", "inconsolata";
+  color: hsl(230, 100%, 95%);
+  background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
+  height: 100svh;
+}
+
+h2 {
+  margin: auto;
+  font-size: 3.5rem;
+  font-weight: 300;
+  animation: lights 5s 750ms linear infinite;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: white;
+}
+
+section {
+  height: 100svh;
+  width: 100svw;
+  scroll-snap-align: start;
+  place-content: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section.rsPage {
+  background: linear-gradient(95deg, hsl(0, 0%, 5%), hsl(0, 0%, 0%));
+}
+
+h2.rsPage,
+p.rsPage {
+  font-family: "runescape";
+  color: yellow;
+  animation: none;
 }
 
 .content {
@@ -11,10 +61,56 @@
   width: 100vw;
 }
 
+#backButton,
+#nextButton {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  border: 0;
+  padding: 0;
+  opacity: 25%;
+  height: 100svh;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+#backButton:hover,
+#nextButton:hover {
+  opacity: 100%;
+}
+
+#backButton.edge,
+#nextButton.edge {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#backButton {
+  left: 0;
+}
+
+#nextButton {
+  right: 0;
+}
+
+.titleButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .textItems {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  scroll-snap-type: x mandatory;
 }
 
 @keyframes lights {
@@ -59,34 +155,10 @@
   }
 }
 
-body {
-  margin: 0;
-  font: 100% / 1.5 Raleway, "inconsolata";
-  color: hsl(230, 100%, 95%);
-  background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
-  height: 100vh;
-  display: flex;
-}
-
-h2 {
-  margin: auto;
-  font-size: 3.5rem;
-  font-weight: 300;
-  animation: lights 5s 750ms linear infinite;
-}
-
-p {
-  margin: 0;
-}
-
-a {
-  color: white;
-}
-
 .icons {
   width: 15px;
   height: 15px;
-  margin-right: 5px
+  margin-right: 5px;
 }
 
 .listItems {
