@@ -7,14 +7,23 @@ const fixWindowScroll = () => {
   window.scrollTo(width * currentPage, 0);
 };
 
-window.addEventListener("beforeunload", fixWindowScroll);
-
-window.addEventListener("scrollend", (e) => {
-  console.log(e);
-  console.log(sections[currentPage].getBoundingClientRect());
+window.addEventListener("beforeunload", () => {
+  fixWindowScroll();
 });
 
 window.addEventListener("resize", fixWindowScroll);
+
+window.addEventListener("DOMContentLoaded", () => {
+  const nav = performance.getEntriesByType("navigation")[0];
+  const isReload = nav.type === "reload";
+
+  if (!isReload) {
+    currentPage = 0;
+    localStorage.removeItem("currentPage");
+  }
+
+  updateButtons();
+});
 
 function updateButtons() {
   backBtn.classList.toggle("edge", currentPage === 0);
@@ -38,5 +47,3 @@ function getPage(diff) {
 
 backBtn.addEventListener("click", () => getPage(-1));
 nextBtn.addEventListener("click", () => getPage(1));
-
-updateButtons();
